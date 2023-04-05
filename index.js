@@ -9,8 +9,12 @@ const port = timestampSliced(timestamp);
 const testsPort = port + 1;
 const content = '{\n' + '  "port": ' + port + ',\n' + '  "testsPort": ' + testsPort + '\n' + '}';
 
-fs.writeFile(absPath, content, err => {
-	if (err) {
-		console.error(err);
-	}
-});
+function wpEnvPortStamp() {
+	fs.writeFile(absPath, content, err => {
+		if (err) {
+			console.error(err);
+		}
+	});
+}
+
+module.exports = wpEnvPortStamp();
