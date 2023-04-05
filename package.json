@@ -4,8 +4,8 @@
   "description": "Add ports with Unix timestamp.",
   "main": "index.js",
   "scripts": {
-    "wp-env-port-stamp": "index.js",
-    "weps": "npm run wp-env-port-stamp"
+    "wp-env-port-stamp": "wp-env-port-stamp",
+    "weps": "wp-env-port-stamp"
   },
   "repository": {
     "type": "git",
