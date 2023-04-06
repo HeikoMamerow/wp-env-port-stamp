@@ -1,20 +1,20 @@
 {
- "name": "wp-env-port-stamp",
- "version": "1.0.0",
- "description": "Add ports with Unix timestamp.",
- "main": "index.js",
- "bin": "cli.js",
- "repository": {
-  "type": "git",
-  "url": "git+https://github.com/HeikoMamerow/wp-env-port-stamp.git"
- },
- "keywords": [
-  "wp-env"
- ],
- "author": "Heiko Mamerow",
- "license": "GPL-3.0-or-later",
- "bugs": {
-  "url": "https://github.com/HeikoMamerow/wp-env-port-stamp/issues"
- },
- "homepage": "https://github.com/HeikoMamerow/wp-env-port-stamp#readme"
+  "name": "wp-env-port-stamp",
+  "version": "1.0.0",
+  "description": "Add ports with Unix timestamp.",
+  "main": "./lib/index.js",
+  "bin": "./bin/cli.js",
+  "repository": {
+	"type": "git",
+	"url": "git+https://github.com/HeikoMamerow/wp-env-port-stamp.git"
+  },
+  "keywords": [
+	"wp-env"
+  ],
+  "author": "Heiko Mamerow",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+	"url": "https://github.com/HeikoMamerow/wp-env-port-stamp/issues"
+  },
+  "homepage": "https://github.com/HeikoMamerow/wp-env-port-stamp#readme"
 }
