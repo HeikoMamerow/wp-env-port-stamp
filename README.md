@@ -12,7 +12,7 @@ The port number will be generated from the current JavaScript date - the time in
 
 ## Install/Remove
 
-Install the package global on your local computer:
+Install the package globally on your local computer:
 
 ```
 npm i -g wp-env-port-stamp
