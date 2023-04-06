@@ -3,9 +3,7 @@
  "version": "1.0.0",
  "description": "Add ports with Unix timestamp.",
  "main": "index.js",
- "bin": {
-  "wp-env-port-stamp": "./cli.js"
- },
+ "bin": "cli.js",
  "repository": {
   "type": "git",
   "url": "git+https://github.com/HeikoMamerow/wp-env-port-stamp.git"
