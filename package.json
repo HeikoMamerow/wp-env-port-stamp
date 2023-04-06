@@ -1,6 +1,6 @@
 {
   "name": "wp-env-port-stamp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Add ports with Unix timestamp.",
   "main": "./lib/index.js",
   "bin": "./bin/cli.js",
