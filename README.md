@@ -32,4 +32,4 @@ npm uninstall -g wp-env-port-stamp
 
 Normally you only need to call the package for the first time in a new project. Later just start directly *wp-env*.
 
-**Attention:** If there is already existing *.wp-env.json* file, *wp-env-port-stamp* will overwrite it! (There will be an improvement to this later).
+**Attention:** If there is already existing *.wp-env.json* file, *wp-env-port-stamp* will overwrite it! (There will be an improvement for this later.)
