@@ -2,7 +2,7 @@
   "name": "wp-env-port-stamp",
   "version": "1.0.4",
   "description": "Add ports with Unix timestamp.",
-  "main": "./lib/index.js",
+  "main": "./bin/cli.js",
   "bin": "./bin/cli.js",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
   "keywords": [
     "wp-env"
   ],
-  "author": "Heiko Mamerow",
+  "author": "Heiko Mamerow <mail@heikomamerow.dev> (https://heikomamerow.dev/)",
   "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/HeikoMamerow/wp-env-port-stamp/issues"
