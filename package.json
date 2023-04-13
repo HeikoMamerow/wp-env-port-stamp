@@ -4,6 +4,10 @@
   "description": "Add ports with Unix timestamp.",
   "main": "./bin/cli.js",
   "bin": "./bin/cli.js",
+  "scripts": {
+    "start": "tsc --watch && node ./bin/cli.js",
+    "lint": "eslint . --ext .ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HeikoMamerow/wp-env-port-stamp.git"
@@ -19,6 +23,9 @@
   "homepage": "https://github.com/HeikoMamerow/wp-env-port-stamp#readme",
   "devDependencies": {
     "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "^8.38.0",
     "typescript": "^5.0.4"
   }
 }
