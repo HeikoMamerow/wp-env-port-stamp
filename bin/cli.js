@@ -1,13 +1,10 @@
 #!/usr/bin/env node
 "use strict";
 const fs = require("fs");
-// const path = require('path');
-const wpEnvJson = '.wp-env.json';
-// const absPath = path.resolve() + '/' + wpEnvJson;
-// const timestampSliced = num => +(num + '').slice(-4); // Last 4 numbers from timestamp.
 const port = getPortnumber();
 const testsPort = port + 1;
 const objPorts = { 'port': port, 'testsPort': testsPort };
+const wpEnvJson = '.wp-env.json';
 let wpEnvJsonData;
 /**
  * Check if ".wp-env.json" exist.

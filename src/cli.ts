@@ -1,13 +1,10 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
-// const path = require('path');
-const wpEnvJson = '.wp-env.json';
-// const absPath = path.resolve() + '/' + wpEnvJson;
-// const timestampSliced = num => +(num + '').slice(-4); // Last 4 numbers from timestamp.
 const port = getPortnumber();
 const testsPort = port + 1;
 const objPorts: { [index: string]: number } = {'port': port, 'testsPort': testsPort}
+const wpEnvJson = '.wp-env.json';
 let wpEnvJsonData: { [index: string]: number }
 
 /**
@@ -15,8 +12,6 @@ let wpEnvJsonData: { [index: string]: number }
  */
 if (fs.existsSync(wpEnvJson)) {
     wpEnvJsonData = JSON.parse(fs.readFileSync(wpEnvJson, 'utf8'))
-
-
     // Add numbers for "port" and "testsPort".
     Object.keys(objPorts).forEach(key => {
         wpEnvJsonData[key] = objPorts[key]
