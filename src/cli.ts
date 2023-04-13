@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
+import fs from 'fs';
 const port = getPortnumber();
 const testsPort = port + 1;
 const objPorts: { [index: string]: number } = {'port': port, 'testsPort': testsPort}

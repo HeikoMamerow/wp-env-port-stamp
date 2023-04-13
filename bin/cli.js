@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 "use strict";
-const fs = require("fs");
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const fs_1 = __importDefault(require("fs"));
 const port = getPortnumber();
 const testsPort = port + 1;
 const objPorts = { 'port': port, 'testsPort': testsPort };
@@ -9,8 +13,8 @@ let wpEnvJsonData;
 /**
  * Check if ".wp-env.json" exist.
  */
-if (fs.existsSync(wpEnvJson)) {
-    wpEnvJsonData = JSON.parse(fs.readFileSync(wpEnvJson, 'utf8'));
+if (fs_1.default.existsSync(wpEnvJson)) {
+    wpEnvJsonData = JSON.parse(fs_1.default.readFileSync(wpEnvJson, 'utf8'));
     // Add numbers for "port" and "testsPort".
     Object.keys(objPorts).forEach(key => {
         wpEnvJsonData[key] = objPorts[key];
@@ -23,7 +27,7 @@ else {
 /**
  * Write to .wp-env.json.
  */
-fs.writeFileSync(wpEnvJson, JSON.stringify(wpEnvJsonData, null, 2));
+fs_1.default.writeFileSync(wpEnvJson, JSON.stringify(wpEnvJsonData, null, 2));
 /**
  * Generate port number from time stamp.
  * Function restarts if port number has unwanted values.
