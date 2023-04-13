@@ -2,6 +2,8 @@
 
 **TL;DR:** *wp-env-port-stamp* is a npm package who generates an *.wp-env.json* file with custom ports for your *wp-env* environment.
 
+[![npm version](https://badge.fury.io/js/wp-env-port-stamp.svg)](https://badge.fury.io/js/wp-env-port-stamp)
+
 ## Background
 
 If you are working with different Docker environments at the same time, you need to manage the ports. *wp-env* uses port 8888 by default. If this port is already used by another project, you have a problem. But the solution is simple: just change the ports.
