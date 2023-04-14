@@ -48,14 +48,20 @@ function getPortnumber() {
     if (notWantedPorts.includes(portnumber)) {
         getPortnumber();
     }
-    // Check if the port is already in use.
-    server.on('error', (err) => {
-        if (err.code === 'EADDRINUSE') {
+    // Check if the ports (wp-env needs 2) are already in use.
+    const portArr = [portnumber, portnumber + 1];
+    portArr.forEach((port) => {
+        server.on('error', (err) => {
+            if (err.code === 'EADDRINUSE') {
+                getPortnumber();
+            }
             server.close();
-            getPortnumber();
-        }
+        });
+        server.on('listening', () => {
+            server.close();
+        });
+        server.listen(port, 'localhost');
     });
-    server.listen(portnumber, 'localhost');
     return portnumber;
 }
 //# sourceMappingURL=cli.js.map

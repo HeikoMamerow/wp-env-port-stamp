@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-import fs from 'fs';
-import net from 'net';
+import fs from 'fs'
+import net from 'net'
 
-const server = net.createServer();
-const port = getPortnumber();
-const testsPort = port + 1;
+const server = net.createServer()
+const port = getPortnumber()
+const testsPort = port + 1
 const objPorts: { [index: string]: number } = {'port': port, 'testsPort': testsPort}
-const wpEnvJson = '.wp-env.json';
+const wpEnvJson = '.wp-env.json'
 let wpEnvJsonData: { [index: string]: number }
 
 
@@ -19,7 +19,7 @@ if (fs.existsSync(wpEnvJson)) {
     // Add numbers for "port" and "testsPort".
     Object.keys(objPorts).forEach(key => {
         wpEnvJsonData[key] = objPorts[key]
-    });
+    })
 } else {
     // No wp-env.json exist.
     wpEnvJsonData = objPorts
@@ -50,14 +50,20 @@ function getPortnumber() {
         getPortnumber()
     }
 
-    // Check if the port is already in use.
-    server.on('error', (err: NodeJS.ErrnoException) => {
-        if (err.code === 'EADDRINUSE') {
+    // Check if the ports (wp-env needs 2) are already in use.
+    const portArr = [portnumber, portnumber + 1]
+    portArr.forEach((port) => {
+        server.on('error', (err: NodeJS.ErrnoException) => {
+            if (err.code === 'EADDRINUSE') {
+                    getPortnumber()
+            }
             server.close()
-            getPortnumber()
-        }
-    });
-    server.listen(portnumber, 'localhost')
+        })
+        server.on('listening', () => {
+            server.close()
+        })
+        server.listen(port, 'localhost')
+    })
 
     return portnumber
 }
