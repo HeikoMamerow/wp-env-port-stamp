@@ -45,7 +45,7 @@ function getPortnumber() {
     }
 
     // Prevent unwanted ports.
-    const notWantedPorts = [0, 79, 80, 87, 88, 442, 443, 2999, 3000, 8079, 8080, 8442, 8443, 8887, 8888, 65535]
+    const notWantedPorts = [0, 79, 80, 87, 88, 442, 443, 2999, 3000, 8079, 8080, 8442, 8443, 8887, 8888, maxNumber]
     if (notWantedPorts.includes(portnumber)) {
         getPortnumber()
     }
