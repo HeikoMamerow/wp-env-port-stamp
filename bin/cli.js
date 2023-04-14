@@ -5,6 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
+const net_1 = __importDefault(require("net"));
+const server = net_1.default.createServer();
 const port = getPortnumber();
 const testsPort = port + 1;
 const objPorts = { 'port': port, 'testsPort': testsPort };
@@ -46,6 +48,14 @@ function getPortnumber() {
     if (notWantedPorts.includes(portnumber)) {
         getPortnumber();
     }
+    // Check if the port is already in use.
+    server.on('error', (err) => {
+        if (err.code === 'EADDRINUSE') {
+            server.close();
+            getPortnumber();
+        }
+    });
+    server.listen(portnumber, 'localhost');
     return portnumber;
 }
 //# sourceMappingURL=cli.js.map

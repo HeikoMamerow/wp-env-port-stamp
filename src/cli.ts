@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 
 import fs from 'fs';
+import net from 'net';
+
+const server = net.createServer();
 const port = getPortnumber();
 const testsPort = port + 1;
 const objPorts: { [index: string]: number } = {'port': port, 'testsPort': testsPort}
 const wpEnvJson = '.wp-env.json';
 let wpEnvJsonData: { [index: string]: number }
+
 
 /**
  * Check if ".wp-env.json" exist.
@@ -18,7 +22,7 @@ if (fs.existsSync(wpEnvJson)) {
     });
 } else {
     // No wp-env.json exist.
-    wpEnvJsonData = objPorts;
+    wpEnvJsonData = objPorts
 }
 
 /**
@@ -35,9 +39,9 @@ fs.writeFileSync(wpEnvJson, JSON.stringify(wpEnvJsonData, null, 2))
 function getPortnumber() {
     // Build port numbers from timestamp.
     const maxNumber = 65535
-    let portnumber = parseInt(Date.now().toString().slice(-5));
+    let portnumber = parseInt(Date.now().toString().slice(-5))
     if (portnumber >= maxNumber) {
-        portnumber = parseInt(portnumber.toString().slice(-4));
+        portnumber = parseInt(portnumber.toString().slice(-4))
     }
 
     // Prevent unwanted ports.
@@ -45,6 +49,15 @@ function getPortnumber() {
     if (notWantedPorts.includes(portnumber)) {
         getPortnumber()
     }
+
+    // Check if the port is already in use.
+    server.on('error', (err: NodeJS.ErrnoException) => {
+        if (err.code === 'EADDRINUSE') {
+            server.close()
+            getPortnumber()
+        }
+    });
+    server.listen(portnumber, 'localhost')
 
     return portnumber
 }
